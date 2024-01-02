@@ -12,6 +12,7 @@ const MainState = ({children}) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [details, setDetails] = useState("");
+    const [favList, setFavList] = useState([]);
 
     const handelSubmit = async (e) => {
         e.preventDefault();
@@ -29,6 +30,37 @@ const MainState = ({children}) => {
         setFoodList(data);
         setLoading(false);
     }
+
+    // const handelFavorite = (favObject) => {
+    //     console.log("favobj", favObject);
+    //     let copyFavList = [...favList];
+    //     copyFavList.push()
+    //     // copyFavList.includes((item) =>{
+    //     //     if(item.id === favObject.id){
+    //     //         copyFavList.splice(favObject.id , 1)
+    //     //     }else{
+    //     //         copyFavList.push(favObject)
+    //     //     }
+    //     // })
+    //     setFavList(copyFavList);
+        
+    //     console.log("favlist", favList)
+    // }
+
+    function handelFavorite(favObject){
+        console.log(favObject);
+        let cpyFavoritesList = [...favList];
+        const index = cpyFavoritesList.findIndex(item=> item.recipe_id === favObject.recipe_id)
+        console.log("index", index);
+    
+        if(index === -1) {
+          cpyFavoritesList.push(favObject)
+        } else {
+          cpyFavoritesList.splice(index)
+        }
+        console.log("cpl", cpyFavoritesList);
+        setFavList(cpyFavoritesList)
+      }
     
   return (
     <MainContext.Provider 
@@ -40,7 +72,9 @@ const MainState = ({children}) => {
             error, 
             handelSubmit, 
             details, 
-            setDetails
+            setDetails,
+            handelFavorite,
+            favList
         }}
     >
         {children}

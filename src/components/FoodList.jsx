@@ -1,4 +1,4 @@
-import {useState, useContext} from 'react'
+import {useContext} from 'react'
 import Food from './Food'
 import { MainContext } from '../context';
 import Header from './Header';
@@ -25,7 +25,7 @@ const FoodList = () => {
                     }
                 </div>
                 :
-                <div> Search To find food recipe</div>
+                <div className="text-center font-xl text-slate-500 font-bold"> Search To find food recipe</div>
             }
             {/* <div className='flex flex-wrap justify-evenly'>
                 

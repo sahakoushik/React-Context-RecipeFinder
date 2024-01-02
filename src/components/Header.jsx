@@ -15,12 +15,12 @@ const Header = () => {
                     value={search} 
                     onChange={(e)=> setSearch(e.target.value)} 
                     type="text" 
-                    placeholder="search"
+                    placeholder="Example: Pizza"
                 />
                 </form>  
             </div>
         </div>
-        <div className='text-center text-lg p-4'>Found <span className='text-green-500 font-bold text-3xl'>{foodList?.count ? foodList.count : 0}</span> {search} dishes</div>
+        <div className='text-center text-lg p-4'>Found <span className='text-green-500 font-bold text-3xl'>{foodList?.count ? foodList.count : 0}</span> {search} recipes</div>
     </div>
   )
 }
